@@ -24,7 +24,6 @@ const Game = ({ scoreDisplay, setScoreDisplay }) => {
   const [currentColorArragement, setCurrentColorArrangement] = useState([]);
   const [squareBeingDragged, setSquareBeingDragged] = useState(null);
   const [squareBeingReplaced, setSquareBeingReplaced] = useState(null);
-  const [previousTurnScore, setPreviousTurnScore] = useState(0);
   const [scoreBeingChanged, setScoreBeingChanged] = useState(false);
   const [changeInScore, setChangeInScore] = useState(0);
   const [noClickBlocker, setNoClickBlocker] = useState(true);
@@ -157,9 +156,6 @@ const Game = ({ scoreDisplay, setScoreDisplay }) => {
   };
 
   const dragEnd = (e) => {
-    // Set the previous turn's score
-    setPreviousTurnScore(scoreDisplay);
-
     const squareBeingDraggedId = parseInt(
       squareBeingDragged.getAttribute("data-id")
     );
@@ -199,7 +195,6 @@ const Game = ({ scoreDisplay, setScoreDisplay }) => {
       }, 2000);
 
       console.log("Total score: ", scoreDisplay);
-      console.log("Previous turn score: ", previousTurnScore);
 
       console.log("Change in score: ", changeInScore);
 
