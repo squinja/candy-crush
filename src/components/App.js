@@ -8,8 +8,11 @@ const App = () => {
   const [scoreDisplay, setScoreDisplay] = useState(0);
   return (
     <div className="app">
-      <Logo />
-      <ScoreBoard score={scoreDisplay} />
+      <div className="left-column">
+        <Logo />
+        <ScoreBoard score={scoreDisplay} />
+      </div>
+
       <GameBoard
         scoreDisplay={scoreDisplay}
         setScoreDisplay={setScoreDisplay}

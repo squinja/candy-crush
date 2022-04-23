@@ -67,8 +67,14 @@ body {
   }
 }
 
+.left-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .score-board {
   display: flex;
+  align-self: center;
   flex-direction: column;
   align-items: center;
   color: whitesmoke;
