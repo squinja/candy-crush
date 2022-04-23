@@ -1,16 +1,124 @@
+body {
+  background-color: #000;
+  user-select: none;
+}
+
 .app {
   display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 30px;
+  width: 100%;
 }
 
 .game {
-  width: 560px;
-  height: 560px;
+  position: relative;
+  margin: 0 auto;
+  width: 606px; /*originally 560 px*/
+  /* +1 for each col from squares margin (576), +2 on either side from game padding */
+  height: 606px;
   display: flex;
   flex-wrap: wrap;
+  background-color: rgb(119, 124, 208);
+  padding: 10px;
+  border-radius: 5px;
+  border: 5px solid rgb(175, 178, 231);
+}
+
+.no-click {
+  pointer-events: none;
 }
 
 .game img {
   width: 70px;
   height: 70px;
+}
+
+.square {
+  border-left: 2px solid rgb(78, 77, 77);
+  border-top: 2px solid rgb(255, 255, 255);
+  background-color: rgb(210, 210, 232);
+  border-radius: 7px;
+  margin: 1px;
+}
+
+.shake-square-animation {
+  animation-duration: 1s;
+  animation-name: shake-square;
+}
+
+@keyframes shake-square {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.score-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: whitesmoke;
+  background-color: rgb(119, 124, 208);
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 5px solid rgb(175, 178, 231);
+}
+
+.score-board h3 {
+  margin-top: 5px;
+}
+
+.score-popup {
+  z-index: 10;
+  position: absolute;
+  top: 303px;
+  left: 303px;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-size: 5rem;
+  color: rgb(244, 222, 79);
+  text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000,
+    -2px -2px 0 #000;
+  animation: fadeInNOut 2s;
+}
+
+@keyframes fadeInNOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.win-state {
+  color: whitesmoke;
+  background-color: rgb(119, 124, 208);
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 5px solid rgb(175, 178, 231);
+  position: absolute;
+  z-index: 20;
+  top: 303px;
+  left: 303px;
+  transform: translate(-50%, -50%);
 }
