@@ -156,6 +156,9 @@ const Game = ({ scoreDisplay, setScoreDisplay }) => {
   };
 
   const dragEnd = (e) => {
+    //   If user drops square being clicked on nothing (like outside the board), then this function returns and does nothing
+    if (!squareBeingReplaced) return;
+
     const squareBeingDraggedId = parseInt(
       squareBeingDragged.getAttribute("data-id")
     );
