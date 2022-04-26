@@ -70,6 +70,8 @@ body {
 .left-column {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
 }
 
 .score-board {
@@ -87,6 +89,20 @@ body {
 
 .score-board h3 {
   margin-top: 5px;
+}
+
+.high-scores-board {
+  color: whitesmoke;
+  background-color: rgb(119, 124, 208);
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 5px solid rgb(175, 178, 231);
+  text-align: center;
+}
+
+.align-left {
+  text-align: left;
 }
 
 .score-popup {
@@ -115,7 +131,7 @@ body {
   }
 }
 
-.win-state {
+.window-popup {
   color: whitesmoke;
   background-color: rgb(119, 124, 208);
   padding: 10px 20px;
