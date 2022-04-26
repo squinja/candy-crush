@@ -9,8 +9,9 @@ import blank from "../images/blank.png";
 import ScorePopup from "./ScorePopup";
 
 import WinState from "./WinState";
+import LoginWindow from "./LoginWindow";
 
-const Game = ({ scoreDisplay, setScoreDisplay }) => {
+const Game = ({ scoreDisplay, setScoreDisplay, currentUser }) => {
   const width = 8;
   const candyColors = [
     blueCandy,
@@ -232,6 +233,7 @@ const Game = ({ scoreDisplay, setScoreDisplay }) => {
   }, []);
 
   useEffect(() => {
+    // if (!currentUser) return;
     const timer = setInterval(() => {
       checkForColumnOfFour();
       checkForRowOfFour();
@@ -255,9 +257,10 @@ const Game = ({ scoreDisplay, setScoreDisplay }) => {
     <div>
       <div
         className={`game ${
-          noClickBlocker || (scoreDisplay > 34 && "no-click")
+          (noClickBlocker || scoreDisplay > 34 || !currentUser) && "no-click"
         } `}
       >
+        {!currentUser && <LoginWindow />}
         {scoreDisplay > 34 ? <WinState score={scoreDisplay} /> : null}
         {scoreBeingChanged && <ScorePopup score={changeInScore} />}
         {currentColorArragement.map((candyColor, index) => (
