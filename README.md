@@ -4,8 +4,7 @@ The live hosted site is coming soon.
 
 This project was inspired by Ania Kubow's video series on how to build a front-end and back-end in React (https://www.youtube.com/watch?v=PBrEq9Wd6_U). 
 
-##Features I added include:
-##Front-end:
+Front-end features I added include:
 - Retro pixel art for icons & logo I designed in Aseprite using Candy Crush's assets
 - High score board
 
