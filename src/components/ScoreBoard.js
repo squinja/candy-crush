@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import UsernameInput from "./UsernameInput";
 import HighScoresBoard from "./HighScoresBoard";
 
 const ScoreBoard = ({ score, currentUser, setCurrentUser }) => {
@@ -9,7 +8,13 @@ const ScoreBoard = ({ score, currentUser, setCurrentUser }) => {
   const [validationError, setValidationError] = useState("");
 
   const fetchData = async () => {
-    const { data } = await axios.get("http://localhost:8000/users");
+    const { data } = await axios.get(
+      `${
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:8000"
+          : "https://protected-oasis-38267.herokuapp.com"
+      }/users`
+    );
     console.log("data", data.data.data);
     setUserScores(data.data.data);
   };
@@ -32,7 +37,11 @@ const ScoreBoard = ({ score, currentUser, setCurrentUser }) => {
     if (!currentUser) return;
     try {
       const response = await axios.patch(
-        `http://localhost:8000/users/${currentUser}`,
+        `${
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:8000"
+            : "https://protected-oasis-38267.herokuapp.com"
+        }/users/${currentUser}`,
         {
           highscore: score,
         }
@@ -58,9 +67,16 @@ const ScoreBoard = ({ score, currentUser, setCurrentUser }) => {
 
     // Send username to backend
     try {
-      const { data } = await axios.post("http://localhost:8000/users", {
-        username: usernameInput,
-      });
+      const { data } = await axios.post(
+        `${
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:8000"
+            : "https://protected-oasis-38267.herokuapp.com"
+        }/users`,
+        {
+          username: usernameInput,
+        }
+      );
       console.log("data", data);
       setValidationError(data.msg);
       setCurrentUser(data.data.userName);
