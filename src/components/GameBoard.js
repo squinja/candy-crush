@@ -3,7 +3,6 @@ import ScoreBoard from "./ScoreBoard";
 import Game from "./Game";
 
 const GameBoard = ({ scoreDisplay, setScoreDisplay, currentUser }) => {
-  console.log("scoreDisplay", scoreDisplay);
   return (
     <div>
       Gameboard
