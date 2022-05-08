@@ -1,4 +1,4 @@
-# Poke Pop game
+# Candy Crush game
 
 The live hosted site is available at: https://candy-crush-eschaale.netlify.app/.
 
